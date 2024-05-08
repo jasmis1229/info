@@ -7,13 +7,16 @@ class Complex:
         return f'{self.a} + {self.b}i'
 
     def __add__(self, other):
-        return f'{self.a + other.a} + {self.b + other.b}i'
+        return Complex(self.a + other.a, self.b + other.b)
     
     def __sub__(self, other):
-        return f'{self.a - other.a} + {self.b - other.b}i'
+        return Complex(self.a - other.a, self.b - other.b)
 
-A=Complex(1, 2)
-B=Complex(3, 4)
-print(A+B)
-print(A-B)
-print(A*B)
+    def __mul__(self, other):
+        return Complex(self.a * other.a - self.b * other.b, self.a * other.b + self.b * other.a)
+
+A = Complex(1, 2)
+B = Complex(3, 4)
+print(A + B)
+print(A - B)
+print(A * B)
